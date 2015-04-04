@@ -1,0 +1,20 @@
+package Platformer;
+
+import apcs.Window;
+
+public class Obstacle {
+	int x, y, width, height;
+	boolean touched = false;
+	
+	public Obstacle(int x, int y, int width, int height) {
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+	}
+	public void draw() {
+		Window.out.color("green");
+		Window.out.rectangle(x,  y,  width, height);
+	}
+
+}
