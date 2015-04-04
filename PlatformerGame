@@ -1,0 +1,42 @@
+package Platformer;
+
+import java.util.ArrayList;
+
+import apcs.Window;
+
+public class PlatformerGame {
+	public static void main(String[] args){
+		Window.size(1000, 500);
+		
+		ArrayList <Obstacle> platforms = new ArrayList<Obstacle> ();
+		Obstacle floor = new Obstacle(100, 475, 400, 50);
+		Obstacle floor2 = new Obstacle(550, 475, 400, 50);
+		Obstacle floor3 = new Obstacle(1000, 475, 400, 50);
+		Player p = new Player();
+		
+		platforms.add(floor);
+		platforms.add(floor2);
+		platforms.add(floor3);
+		
+		while( true) {
+			Window.out.background("white");
+			
+			for( Obstacle o : platforms){
+				o.draw();
+				p.jump(p.isTouching(o));
+				
+			}
+			
+			p.draw();
+			p.move();
+			
+			if(p.y > 550){
+				p.x = 50;
+				p.y = 400;
+			}
+			
+			Window.frame();
+		}
+	}
+
+}
